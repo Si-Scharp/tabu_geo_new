@@ -1,0 +1,11 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Savanne",
+  "defenition": "Eine Savanne ist eine trockene Graslandschaft. Bei einer Savanne ist fast der gesamte Boden von Pflanzen bedeckt. Normalerweise sind es Gräser und einige Sträucher. Bäume stehen eher vereinzelt. Die Savannen schließen sich beiderseits des Äquators an den Tropischen Regenwald an.",
+  "verboten": [
+    "Savanne"
+  ],
+  "bild": {
+    "url": "https://img.fotocommunity.com/savanne-4755eeeb-8041-457b-ac0c-2cf07ed38c51.jpg?height=1080"
+  }
+}

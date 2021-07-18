@@ -1,0 +1,10 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Tundra",
+  "defenition": "Unter Tundra versteht man die Region, die sich nördlich der polaren Waldgrenze erstreckt und eine überraschende Fülle von Flechten, Moosen und Gefäßpflanzen beherbergt. Die Tundra grenzt im äußersten Norden an Polarwüsten, den sog. Kältewüsten an, die durch extreme Niederschlagsarmut (unter 100 mm/Jahr) gekennzeichnet sind.",
+  "verboten": [
+    "Tundra",
+    "Waldgrenze",
+    "Norden"
+  ]
+}

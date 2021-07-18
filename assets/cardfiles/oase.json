@@ -1,0 +1,11 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Oase",
+  "defenition": "Eine Oase ist eine Wasserstelle in der Wüste. Um die Wasserstelle wachsen Pflanzen, es ist also ein grüner Fleck in der heißen Wüste. Eine Oase kann auch künstlich durch Menschen entstehen, wenn sie Wasser aus dem Grundwasser nach oben pumpen.",
+  "verboten": [
+    "Oase"
+  ],
+  "bild": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Oman-Oasis.jpg/1920px-Oman-Oasis.jpg"
+  }
+}

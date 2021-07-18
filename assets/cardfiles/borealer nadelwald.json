@@ -1,0 +1,12 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Borealer Nadelwald",
+  "defenition": "Der Boreale Nadelwald ist die an der nördlichsten gelegenen Vegetationszone, in der noch Bäume wachsen.",
+  "verboten": [
+    "Borealer Nadelwald"
+  ],
+  "bild": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Yukon_5_finger_rapids.JPG/495px-Yukon_5_finger_rapids.JPG",
+    "quelle": "https://de.wikipedia.org/wiki/Borealer_Nadelwald"
+  }
+}

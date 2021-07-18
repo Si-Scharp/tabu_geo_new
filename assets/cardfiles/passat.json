@@ -1,0 +1,8 @@
+{
+    "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+    "begriff" : "Passat (Windsystem)",
+    "defenition" : "Mäßig starker Wind, der in den Tropen bzw. Subtropen auftritt",
+    "verboten" : [
+        "Wind"
+    ]
+}

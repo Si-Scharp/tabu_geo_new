@@ -1,0 +1,14 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Tageszeitenklima",
+  "defenition": "Von einem Tageszeitenklima ist die Rede, wenn die mittleren Temperaturunterschiede zwischen Tag und Nacht größer sind als die Temperaturunterschiede zwischen den einzelnen Monaten. Die Temperaturschwankungen innerhalb von 24 Stunden sind somit größer als die mittlere Temperaturamplitude innerhalb eines Jahres. Tageszeitenklima findet man vor allem in den Tropen und am ausgeprägtesten in den immerfeuchten Tropen.",
+  "verboten": [
+    "Tageszeitenklima",
+    "Monat",
+    "Tropen"
+  ],
+  "bild": {
+    "quelle": "https://de.wikipedia.org/wiki/Tageszeitenklima",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Tageszeitenklima.png/330px-Tageszeitenklima.png"
+  }
+}

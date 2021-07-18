@@ -1,0 +1,12 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Trockensavanne",
+  "defenition": "Die Trockensavanne ist je nach Betrachtungsweise eine Öko Zone, ein Zönobium oder eine Vegetationszone der Tropen. Die Trockensavanne hat fünf bis sieben aride Monate. Im Jahr fallen zwischen 500 und 1000 mm Niederschlag in einer ausgeprägten Regenzeit. In der Trockensavanne herrscht wie im tropischen Regenwald Tageszeitenklima.",
+  "verboten": [
+    "Trockensavanne",
+    "Hitze",
+    "Zone",
+    "arid",
+    "Niederschlag"
+  ]
+}

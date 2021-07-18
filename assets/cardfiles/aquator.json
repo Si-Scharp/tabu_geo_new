@@ -1,0 +1,12 @@
+{
+    "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+    "begriff" : "Äquator",
+    "defenition" : "Größter Breitenkreis auf der Erde, der die Erdkugel in die nördliche und südliche Halbkugel teilt",
+    "verboten" : [
+        "Halbkugel", "Breitenkreis", "teilt"
+    ],
+    "bild" : {
+        "url" : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/World_map_with_equator.jpg/690px-World_map_with_equator.jpg",
+        "quelle": "https://de.wikipedia.org/wiki/%C3%84quator"}
+    
+}

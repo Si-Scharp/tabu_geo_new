@@ -1,0 +1,13 @@
+{
+    "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+
+    "begriff" : "immerfeuchte Tropen",
+    "defenition" : "Ökozone um den Äquator herum. Vegetation: Tropische Regenwälder",
+    "verboten" : [
+        "Äquator", "Feucht"
+    ],
+    "bild": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/%C3%96kozone_Immerfeuchte_Tropen.png/660px-%C3%96kozone_Immerfeuchte_Tropen.png",
+        "quelle": "https://de.wikipedia.org/wiki/Immerfeuchte_Tropen"
+    }
+}

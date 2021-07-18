@@ -1,0 +1,10 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Tiefdruckgebiet",
+  "defenition": "Beschreibt eine Zone, in der es durch fallenden Luftdruck zu einer Veränderung des Wetters zugunsten einer Bildung von Wolken und in weiterer Folge zu Niederschlägen kommt.",
+  "verboten": [
+    "Tiefdruckgebiet",
+    "Zone",
+    "Luftdruck"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+    "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+    "begriff" : "Gemäßigte Zone",
+    "defenition" : "Klimazone erstreckt sich vom Polarkreis bis zum fünfundvierzigsten Breitengra. Unterschied zwischen Jahreszeiten. Vegetation: Nadel-, Misch- und Laubwälder.",
+    "verboten" : [
+        "Polarkreis"
+    ],
+    "bild": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Klimag%C3%BCrtel-der-erde-gem%C3%A4%C3%9Figte-zone.png/1920px-Klimag%C3%BCrtel-der-erde-gem%C3%A4%C3%9Figte-zone.png?download",
+        "quelle": "https://de.wikipedia.org/wiki/Gem%C3%A4%C3%9Figte_Zone"
+    }
+}

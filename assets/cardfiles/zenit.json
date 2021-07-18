@@ -1,0 +1,12 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Zenit",
+  "defenition": "Der höchste Stand eines Objekts am Himmel über einem Bezugspunkt der Erde (oftmals spricht man z.B. davon, dass die Sonne im Zenit ist).",
+  "verboten": [
+    "Zenit"
+  ],
+  "bild": {
+    "quelle": "https://www.goruma.de/erde-und-natur/geografie/sonnenhoechststaende",
+    "url": "https://www.goruma.de/erde-und-natur/geografie/sonnenhoechststaendehttps://www.goruma.de/sites/default/files/styles/content_full_size/public/images/import/bilder/content/j/jahreszeiten_1.jpg?itok=hwHgaSRK"
+  }
+}

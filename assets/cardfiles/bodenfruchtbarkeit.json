@@ -1,0 +1,13 @@
+{
+    "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+
+    "begriff" : "Bodenfruchtbarkeit",
+    "defenition" : "Komplexer Ausdruck für alle das Pflanzenwachstum bzw. die Biomasseproduktion beeinflussenden mineralogischen, physikalischen, chemischen und biologischen Bodeneigenschaften und Prozesse.",
+    "verboten" : [
+        "Pflanzen", "Wachsen", "Landwirtschaft"
+    ],
+    "bild": {
+        "quelle": "https://www.researchgate.net/figure/Abbildung-4-Dreieck-der-Bodenfruchtbarkeit-Ein-weiteres-Erfolgssegment-fuer-eine_fig3_281205036",
+        "url": "https://www.researchgate.net/profile/Juergen-Pohlan/publication/281205036/figure/fig3/AS:391525503651852@1470358362792/Abbildung-4-Dreieck-der-Bodenfruchtbarkeit-Ein-weiteres-Erfolgssegment-fuer-eine.png"
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Humid",
+  "defenition": "Reich an Niederschlag/feucht, vor allem bei der Auswertung von Klimadiagrammen von Verwendung.",
+  "verboten": [
+    "Humid",
+    "feucht",
+    "nass"
+  ],
+  "bild": {
+    "url": "https://nationwiderestorations.ca/wp-content/uploads/2019/02/humid-weather-mold-development.jpg"
+  }
+}

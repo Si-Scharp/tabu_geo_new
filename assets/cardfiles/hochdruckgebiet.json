@@ -1,0 +1,10 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Hochdruckgebiet",
+  "defenition": "In einem Hochdruckgebiet sinken Luftmassen stark ab. Dabei erwärmt sich die Luft, sodass keine Kondensation und somit auch keine Wolkenbildung stattfinden kann. In Bodennähe fließt die Luft aus dem Hochdruckgebiet in Richtung Tiefdruckgebiet, sie divergiert.",
+  "verboten": [
+    "Hochdruckgebiet",
+    "Luft",
+    "erwärmt"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Bodenerosion",
+  "defenition": "Darunter wird der Abtrag von Bodenbestandteilen durch abfließendes Wasser, Wind, Schneeschmelze und Bodenverlagerungen verstanden. Ein Großteil der Bodenerosion ist auf den Menschen zurückzuführen.",
+  "verboten": [
+    "Bodenerosion"
+  ],
+  "bild": {
+    "url": "https://www.bgr.bund.de/DE/Themen/Boden/Bilder/Bodenerosion/Bod_BoEro_AbtragInRille_k.jpg;jsessionid=6145136EF68BE0407ED0C1C68F3466C0.2_cid321?__blob=normal&v=1",
+    "quelle": "https://www.bgr.bund.de/DE/Themen/Boden/Ressourcenbewertung/Bodenerosion/Bodenerosion_node.html"
+  }
+}

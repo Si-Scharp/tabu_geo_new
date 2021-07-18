@@ -1,0 +1,10 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Klimazonen",
+  "defenition": "Klimazonen sind großräumige Gebiete der Erde, in denen das Klima gleichartig oder relativ einheitlich ist. Klimazonen können nach den Strahlungsverhältnissen, nach thermischen, hygrischen oder dynamischen Merkmalen, und schließlich nach den Auswirkungen des Klimas, z.B. auf die Vegetation, festgelegt werden.",
+  "verboten": [
+    "Klimazone",
+    "Gebiet",
+    "Auswirkung"
+  ]
+}

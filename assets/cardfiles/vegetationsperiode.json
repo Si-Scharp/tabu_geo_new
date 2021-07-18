@@ -1,0 +1,10 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Vegetationsperiode",
+  "defenition": "Die Vegetationsperiode wird definiert als derjenige Zeitraum des Jahres, in dem die Pflanzen photosynthetisch aktiv sind, d.h. wachsen, blühen und fruchten.",
+  "verboten": [
+    "Vegetationsperiode",
+    "Zeitraum",
+    "wachsen"
+  ]
+}

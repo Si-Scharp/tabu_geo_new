@@ -1,0 +1,11 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Taiga",
+  "defenition": "Taiga, Bezeichnung für die zirkumpolare Zone des Borealen Nadelwaldes in Nordosteuropa und Sibirien. Im Norden grenzt die Taiga an die Tundra, im Süden an kontinentale Baumsteppen (Steppe), Halbwüsten oder Laubmischwälder. Typisch für sie sind auch oft Permafrost Gebiete.",
+  "verboten": [
+    "Taiga",
+    "zirkumpolare Zone",
+    "Tundra",
+    "Baumsteppen"
+  ]
+}

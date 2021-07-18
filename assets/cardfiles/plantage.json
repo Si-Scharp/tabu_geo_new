@@ -1,0 +1,12 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Plantage",
+  "defenition": "Großbetrieblicher Anbau von Baum- und Strauchkulturen. Typisches Merkmal für eine Plantage ist eine weit überdurchschnittlich große Fläche, die nicht ausschließlich der Nutzung dienen muss. Oft gehören auch Waldgebiete, steile Bergländer, Überschwemmungsflächen und Sumpfgebiete dazu.",
+  "verboten": [
+    "Plantage",
+    "Anbau",
+    "Fläche",
+    "Landwirtschaft",
+    "Wasser"
+  ]
+}

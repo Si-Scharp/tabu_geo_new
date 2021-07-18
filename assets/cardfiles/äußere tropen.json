@@ -1,0 +1,13 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Äußere Tropen",
+  "defenition": "In den äußeren Tropen tritt bei insgesamt geringeren Niederschlägen eine winterliche Trockenzeit auf, die in den Randtropen an der Grenze zur subtropischen Klimazone am stärksten ausgeprägt ist.",
+  "verboten": [
+    "Äußere Tropen",
+    "Trockenzeit",
+    "Grenze"
+  ],
+  "bild": {
+    "url": "https://www.worldatlas.com/upload/be/21/af/shutterstock-656825350.jpg"
+  }
+}

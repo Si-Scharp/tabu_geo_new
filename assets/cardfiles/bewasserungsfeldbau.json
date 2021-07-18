@@ -1,0 +1,12 @@
+{
+    "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+    "begriff" : "Bewässerungsfeldbau",
+    "defenition" : "Bewirtschaftung des Kulturbodens und die landwirtschaftliche Produktion mit Verfahren künstlicher Bewässerung",
+    "verboten" : [
+        "Landwirtschaft", "Bewässerung" , "künstlich"
+    ],
+    "bild": {
+        "url": "https://ackerbau.weebly.com/uploads/4/8/9/4/48948549/header_images/1426752190.jpg",
+        "quelle": "https://ackerbau.weebly.com/bewaumlsserungsfeldbau.html"
+    }
+}

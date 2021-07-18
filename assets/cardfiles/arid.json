@@ -1,0 +1,10 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Arid",
+  "defenition": "Trocken/dürr, vor allem bei der Auswertung von Klimadiagrammen von Verwendung.",
+  "verboten": [
+    "Arid",
+    "warm",
+    "heiß"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Dornsavanne",
+  "defenition": "Die Dornstrauchsavanne wird auch als Dornbuschsavanne, Dornbaumsavanne, Dornensavanne oder Dornbuschsteppe bezeichnet. Sie ist je nach Betrachtungsweise eine Öko Zone, ein Zönobium oder eine Vegetationszone der Tropen und ist durch offenen Bewuchs (Grasland) und in relativ regelmäßigen Abständen stehende Büsche charakterisiert.",
+  "verboten": [
+    "Dornsavanne",
+    "Zone",
+    "Hitze",
+    "Bewuchs"
+  ],
+  "bild": {
+    "url": "https://wasser-fuer-kenia.de/wp-content/uploads/2013/08/Kenia-Dornsavanne-D%C3%BCrre-035-e1377377782915.jpg"
+  }
+}

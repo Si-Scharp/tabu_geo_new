@@ -1,0 +1,12 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Nomadismus",
+  "defenition": "Der Nomadismus stellt sich i.d.R. als ein Wanderhirten TUM dar, das durch ständiges, meist saisonbedingtes zyklisches Wandern ganzer Stämme von Viehhaltern unter Mitnahme der beweglichen Habe zum Zwecke der Weidenutzung gekennzeichnet ist.",
+  "verboten": [
+    "Nomadismus"
+  ],
+  "bild": {
+    "quelle": "https://de.wikipedia.org/wiki/Nomadismus",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Mongolian_horse_14.JPG/330px-Mongolian_horse_14.JPG"
+  }
+}

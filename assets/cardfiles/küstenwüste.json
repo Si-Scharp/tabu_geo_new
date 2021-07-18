@@ -1,0 +1,11 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Küstenwüste",
+  "defenition": "Die Küstenwüste ist ein extremer Wüstentyp im Küstenbereich, der sich in den Tropen und Subtropen unter Einfluss eines kalten Meeresstromes entwickelt. Die Trockenheit in diesem Bereich wird verstärkt durch Auftrieb von kaltem Tiefenwasser nahe der Küste, hervorgerufen durch trockene ablandige Passatwinde. Küstenwüsten sind, bedingt durch die Corioliskraft, ausschließlich an den Westseiten von Kontinenten zu finden.",
+  "verboten": [
+    "Küstenwüste",
+    "trocken",
+    "Meeresstrom",
+    "Westseiten"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+    "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+
+    "begriff" : "Permafrost",
+    "defenition" : "auch: Dauerfrostboden, Permafrostboden | Boden, Sediment oder Gestein, welches in unterschiedlicher Mächtigkeit und Tiefe unter der Erdoberfläche mindestens zwei Jahre ununterbrochen Temperaturen unter dem Gefrierpunkt aufweist.",
+    "verboten" : [
+        "Dauerfrost", "Eis"
+    ],
+    "bild" : {
+        "url" : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Permafrost_-_ice_wedge.jpg",
+        "quelle": "https://de.wikipedia.org/wiki/Permafrost#:~:text=Permafrost%20%E2%80%93%20auch%20Dauerfrostboden%20oder%20Permafrostboden,Temperaturen%20unter%20dem%20Gefrierpunkt%20aufweist."
+    }
+}

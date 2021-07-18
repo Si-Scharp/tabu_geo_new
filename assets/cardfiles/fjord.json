@@ -1,0 +1,12 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Fjord",
+  "defenition": "Ein weit ins Festland hineinreichender, durch einen seewärts wandernden Talgletscher entstandener Meeresarm.",
+  "verboten": [
+    "Fjord"
+  ],
+  "bild": {
+    "url": "https://assets.simpleviewcms.com/simpleview/image/upload/c_fill,q_65,w_1600/v1/clients/norway/naeroyfjorden_fjord_norway_2_1_001b9127-14ad-4b3d-99b6-29d8b3aae412.jpg",
+    "quelle": "https://www.visitnorway.de/aktivitaten/naturwunder/fjorde/wissenswertes/"
+  }
+}

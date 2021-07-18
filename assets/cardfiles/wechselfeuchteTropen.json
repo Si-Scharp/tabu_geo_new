@@ -1,0 +1,13 @@
+{
+    "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+    "begriff" : "Wechselfeuchte Tropen",
+    "defenition" : "Unter der Tropischen Klimazone (0° - 23,5°) versteht man jene Gebiete, die durch die beiden Wendekreise vom Äquator ausgehend begrenzt werden.",
+    "verboten" : [
+        "Feucht", "Untere", "Klimazone"
+    ],
+    "bild": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/%C3%96kozone_Sommerfeuchte_Tropen.png/660px-%C3%96kozone_Sommerfeuchte_Tropen.png",
+        "quelle": "https://de.wikipedia.org/wiki/Sommerfeuchte_Tropen"
+    }
+
+}

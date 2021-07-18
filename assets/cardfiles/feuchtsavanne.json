@@ -1,0 +1,13 @@
+{
+    "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+
+    "begriff" : "Feuchtsavanne",
+    "defenition" : "Vegetationszone der Tropen zwischen Übergangsbereich zwischen den ariden Passatwindzonen und dem tropischen Regendwaldklima. Hohe gräser",
+    "verboten" : [
+        "Tropen", "Passatwinde"
+    ],
+    "bild": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/1632x1224_sertaoe_rio_grande_do_norte_landscape_panorama_brasil.jpg/1440px-1632x1224_sertaoe_rio_grande_do_norte_landscape_panorama_brasil.jpg?download",
+        "quelle": "https://de.wikipedia.org/wiki/Feuchtsavanne#:~:text=Die%20Feuchtsavanne%20ist%20je%20nach,Regenwald%20und%20der%20ariden%20Passatwindzone."
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Polarzone",
+  "defenition": "Die Polarzone (auch Polargebiet genannt) ist eine Klimazone, die sich über die Arktis auf der nördlichen Halbkugel der Erde und die Antarktis auf der südlichen Halbkugel der Erde erstreckt. Die Polare Zone ist eine Kältewüste, in welcher die Temperaturen selten die Nullgradgrenze überschreiten und eine verminderte Sonneneinstrahlung und ein geringer Niederschlag herrscht.",
+  "verboten": [
+    "Polarzone",
+    "Klima",
+    "nördliche/südliche Halbkugel",
+    "kalt "
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+  "begriff": "Klimadiagramm",
+  "defenition": "Im Klimadiagramm wird das Klima eines bestimmten Ortes grafisch dargestellt. Dabei sind neben dem Namen und der Lage der Klimastation, der Höhenlage und er Durchschnittstemperatur und der Jahresniederschlagssumme zwei Kurven angegeben, anhand derer man das Klima eines Ortes beschreiben kann.",
+  "verboten": [
+    "Klimadiagramm",
+    "Niederschlag",
+    "Kurve"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+    "$schema": "https://gist.githubusercontent.com/DavidBeh/8785f20455482f27c549247d7481980a/raw",
+
+    "begriff" : "Jahreszeitenklima",
+    "defenition": "Klima derjenigen Klimazonen, in denen sich im Jahresverlauf warme und kalte Jahreszeiten deutlich voneinander unterscheiden.",
+    "verboten" : [
+        "Unterteilt", "4"
+    ]
+}
