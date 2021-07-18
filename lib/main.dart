@@ -2,7 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:tabu_geo_new/filehelper/assetbundlehelper.dart';
+import 'package:tabu_geo_new/models/game_settings.dart';
 import 'package:tabu_geo_new/widgets/play_page.dart';
+
+import 'models/geo_card.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: PlayPage(),
+      home: PlayPage(gameSettings: GameSettings(), cards: [tk, tk, tk], ),
     );
   }
 }
@@ -96,3 +99,13 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+GeoCard tk = GeoCard()
+  ..image = (GeoImage()
+    ..url =
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/World_map_with_equator.jpg/690px-World_map_with_equator.jpg")
+  ..forbiddenWords = ["Halbkugel", "Breitenkreis", "teilt"]
+  ..term = "Äquator"
+  ..definition =
+      "Größter Breitenkreis auf der Erde, der die Erdkugel in die nördliche und südliche Halbkugel teilt";
+
