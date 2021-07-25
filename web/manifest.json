@@ -1,11 +1,11 @@
 {
-    "name": "tabu_geo_new",
-    "short_name": "tabu_geo_new",
+    "name": "Geobegriffe Mehrspieler-Ratespiel",
+    "short_name": "Geo Kartenspiel",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Kartenratespiel Geopgraphie Themen",
+    "description": "Ein konfigurierbares Kartenspiel bei dem von einer Person beschriebene Wörter von anderen Personen erraten werden müssen. Thema: Schulgeographie",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

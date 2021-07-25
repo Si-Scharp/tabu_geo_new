@@ -16,8 +16,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   late GeoCard currentCard;
 
-  late Stopwatch stopwatch;
-  late Timer tickerTimer;
+  late Stopwatch stopwatch = new Stopwatch();
+  late Timer tickerTimer = new Timer(Duration.zero, () {});
 
   GameBloc({required this.gameSettings, required this.initialCards}) : super(GameNotStartedState()) {
     initialCards.shuffle();
@@ -58,7 +58,6 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       });
       stopwatch = Stopwatch()..start();
     }
-
     return GameCardShownState(remainingCards.length + 1, initialCards.length, gameSettings, currentCard,
         gameSettings.timeLimitPerCard);
   }

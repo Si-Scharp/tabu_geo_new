@@ -12,7 +12,6 @@ abstract class GameRunningState extends GameState {
   final int totalCards;
   final GameSettings gameSettings;
 
-
   GameRunningState(
       this.numberOfCurrentCard, this.totalCards, this.gameSettings);
 }
