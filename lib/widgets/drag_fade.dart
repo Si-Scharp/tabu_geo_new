@@ -6,7 +6,7 @@ typedef DropCallback = void Function(bool result);
 
 class DragFade extends StatefulWidget {
   const DragFade(
-      {Key? key, required this.child, this.maxDrag = 300, this.onDrop})
+      {Key? key, required this.child, this.maxDrag = 80, this.onDrop})
       : super(key: key);
 
   final double maxDrag;

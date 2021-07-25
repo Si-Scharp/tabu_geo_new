@@ -6,6 +6,7 @@ import 'package:tabu_geo_new/widgets/card_loader_status_bar.dart';
 import 'package:tabu_geo_new/widgets/play_page.dart';
 import 'package:tabu_geo_new/widgets/settings_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -23,11 +24,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildPanelHeader() {
-
     return Column(
       children: [
         ElevatedButton(
-            onPressed:  _panelController.isAttached && !_panelController.isPanelOpen &&  !_panelController.isPanelClosed
+            onPressed: _panelController.isAttached &&
+                    !_panelController.isPanelOpen &&
+                    !_panelController.isPanelClosed
                 ? null
                 : () => _panelController.isPanelOpen
                     ? _panelController.close()
@@ -50,7 +52,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SlidingUpPanel(
-
         minHeight: 50,
         onPanelSlide: (_) => setState(() {}),
 
@@ -58,10 +59,22 @@ class _HomePageState extends State<HomePage> {
         body: ListView(
           children: [
             CardLoaderStatusBar(),
-            ListTile(
-              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => PlayPage(cards: (context.read<CardLoaderCubit>().state as CardsLoadedState).cards, gameSettings: GameSettings()),)),
-              title: Text("Spielen"),
-            )
+            BlocBuilder<CardLoaderCubit, CardLoaderState>(
+              builder: (context, state) {
+                return ListTile(
+                  enabled: state is CardsLoadedState,
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => PlayPage(
+                        cards: (context.read<CardLoaderCubit>().state
+                                as CardsLoadedState)
+                            .cards,
+                        gameSettings: GameSettings()),
+                  )),
+                  title: Text("Spielen"),
+                );
+              },
+            ),
+            ListTile(title: Text("Kompatibilitätshinweis"),subtitle: Text("Nutze auf iOS Safari, sonst Chrome oder Chromium-basierende browser"),)
           ],
         ),
 
@@ -75,11 +88,11 @@ class _HomePageState extends State<HomePage> {
           child: ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 600, minWidth: 60),
             child: Column(
-                children: [
-                  _buildPanelHeader(),
-                  SettingsView(),
-                ],
-              ),
+              children: [
+                _buildPanelHeader(),
+                SettingsView(),
+              ],
+            ),
           ),
         ),
       ),
