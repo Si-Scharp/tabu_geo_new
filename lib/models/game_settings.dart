@@ -1,3 +1,5 @@
+
+
 class GameSettings {
   bool showDescription = true;
   bool showImage = true;
@@ -8,5 +10,10 @@ class GameSettings {
   ///1+, never 0
   int numberOfTeams = 1;
   Duration? timeLimitPerCard;
+}
 
+enum TimeType {
+  none,
+  stopwatch,
+  timer
 }

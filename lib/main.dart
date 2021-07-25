@@ -1,8 +1,12 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tabu_geo_new/bloc/card_cubit/card_loader_cubit.dart';
 import 'package:tabu_geo_new/filehelper/assetbundlehelper.dart';
 import 'package:tabu_geo_new/models/game_settings.dart';
+import 'package:tabu_geo_new/widgets/home_page.dart';
 import 'package:tabu_geo_new/widgets/play_page.dart';
 
 import 'models/geo_card.dart';
@@ -15,21 +19,55 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+    return BlocProvider(
+      create: (context) => CardLoaderCubit(),
+      child: MaterialApp(
+        title: 'Geo Raten',
+        theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blue,
+        ),
+        home: HomePage(),
+        //home: TestWg(),
       ),
-      home: PlayPage(gameSettings: GameSettings(), cards: [tk, tk, tk], ),
+    );
+  }
+}
+
+typedef Fun<T, P> = T Function(P);
+
+
+class TestWg extends StatelessWidget {
+  const TestWg({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: 500,
+        height: 500,
+        color: Colors.blue,
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.centerRight,
+              child: Container(
+                width: 20,
+                height: 20,
+                color: Colors.yellow,
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
@@ -37,7 +75,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
-
 
   final String title;
 
@@ -76,21 +113,25 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: FutureBuilder(
-          builder: (context, AsyncSnapshot<List> snapshot) {
-            if (!snapshot.hasData) return Text("please wait");
+          child: FutureBuilder(
+            builder: (context, AsyncSnapshot<List> snapshot) {
+              if (!snapshot.hasData) return Text("please wait");
 
-            return ListView.builder(itemBuilder: (context, index) {
-
-              return ListTile(subtitle: Text(snapshot.data![index]));
-            }, itemCount: snapshot.data!.length,);
-          },
-          future: Future<List<String>>(() async {
-            var p = await AssetBundleHelper.getAllPaths(context);
-            return Future.wait(p.map((e) async => (await DefaultAssetBundle.of(context).loadString(e))).toList());
-          }),
-        )
-      ),
+              return ListView.builder(
+                itemBuilder: (context, index) {
+                  return ListTile(subtitle: Text(snapshot.data![index]));
+                },
+                itemCount: snapshot.data!.length,
+              );
+            },
+            future: Future<List<String>>(() async {
+              var p = await AssetBundleHelper.getAllPaths(context);
+              return Future.wait(
+                  p.map((e) async =>
+                  (await DefaultAssetBundle.of(context)
+                      .loadString(e))).toList());
+            }),
+          )),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
@@ -108,4 +149,3 @@ GeoCard tk = GeoCard()
   ..term = "Äquator"
   ..definition =
       "Größter Breitenkreis auf der Erde, der die Erdkugel in die nördliche und südliche Halbkugel teilt";
-

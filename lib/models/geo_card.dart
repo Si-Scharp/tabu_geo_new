@@ -12,12 +12,10 @@ class GeoCard {
 
   late List<String>? forbiddenWords;
 
-
-
-
-
   @JsonKey(name: "bild")
   GeoImage? image;
+
+
 
   static GeoCard fromJson(Map<String, dynamic> json) => _$GeoCardFromJson(json);
 }
