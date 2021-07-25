@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Geo Raten',
         theme: ThemeData(
+          //cardTheme: CardTheme(elevation: 0.0),
           // This is the theme of your application.
           //
           // Try running your application with "flutter run". You'll see the

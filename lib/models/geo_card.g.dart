@@ -10,9 +10,8 @@ GeoCard _$GeoCardFromJson(Map<String, dynamic> json) {
   return GeoCard()
     ..term = json['begriff'] as String
     ..definition = json['defenition'] as String?
-    ..forbiddenWords = (json['forbiddenWords'] as List<dynamic>?)
-        ?.map((e) => e as String)
-        .toList()
+    ..forbiddenWords =
+        (json['verboten'] as List<dynamic>?)?.map((e) => e as String).toList()
     ..image = json['bild'] == null
         ? null
         : GeoImage.fromJson(json['bild'] as Map<String, dynamic>);

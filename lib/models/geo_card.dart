@@ -10,6 +10,7 @@ class GeoCard {
   @JsonKey(name: "defenition") //rechtschreibfehler lol
   String? definition;
 
+  @JsonKey(name: "verboten")
   late List<String>? forbiddenWords;
 
   @JsonKey(name: "bild")
