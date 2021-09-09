@@ -1,11 +1,14 @@
 import 'dart:convert';
 
+import 'package:concentric_transition/concentric_transition.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tabu_geo_new/bloc/card_cubit/card_loader_cubit.dart';
 import 'package:tabu_geo_new/filehelper/assetbundlehelper.dart';
 import 'package:tabu_geo_new/models/game_settings.dart';
+import 'package:tabu_geo_new/widgets/card_buttons.dart';
+import 'package:tabu_geo_new/widgets/concentric_card_view.dart';
 import 'package:tabu_geo_new/widgets/home_page.dart';
 import 'package:tabu_geo_new/widgets/play_page.dart';
 
@@ -22,29 +25,52 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => CardLoaderCubit(),
       child: MaterialApp(
-        title: 'Geo Raten',
-        theme: ThemeData(
-          //cardTheme: CardTheme(elevation: 0.0),
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
-          primarySwatch: Colors.blue,
-        ),
-        home: HomePage(),
-        //home: TestWg(),
+          title: 'Geo Raten',
+          theme: ThemeData(
+            //cardTheme: CardTheme(elevation: 0.0),
+            // This is the theme of your application.
+            //
+            // Try running your application with "flutter run". You'll see the
+            // application has a blue toolbar. Then, without quitting the app, try
+            // changing the primarySwatch below to Colors.green and then invoke
+            // "hot reload" (press "r" in the console where you ran "flutter run",
+            // or simply save your changes to "hot reload" in a Flutter IDE).
+            // Notice that the counter didn't reset back to zero; the application
+            // is not restarted.
+            primarySwatch: Colors.blue,
+          ),
+          home: TP()
+          //home: HomePage(),
+          //home: TestWg(),
+          ),
+    );
+  }
+}
+
+class TP extends StatefulWidget {
+  const TP({Key? key}) : super(key: key);
+
+  @override
+  _TPState createState() => _TPState();
+}
+
+class _TPState extends State<TP> {
+  double val = 0.5;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Single Widget Test"),
+      ),
+      body: Center(
+        child: ConcentricCardView(card: tk, revealed: false,)
       ),
     );
   }
 }
 
 typedef Fun<T, P> = T Function(P);
-
 
 class TestWg extends StatelessWidget {
   const TestWg({Key? key}) : super(key: key);
@@ -72,7 +98,6 @@ class TestWg extends StatelessWidget {
     );
   }
 }
-
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -112,27 +137,25 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+          // Center is a layout widget. It takes a single child and positions it
+          // in the middle of the parent.
           child: FutureBuilder(
-            builder: (context, AsyncSnapshot<List> snapshot) {
-              if (!snapshot.hasData) return Text("please wait");
+        builder: (context, AsyncSnapshot<List> snapshot) {
+          if (!snapshot.hasData) return Text("please wait");
 
-              return ListView.builder(
-                itemBuilder: (context, index) {
-                  return ListTile(subtitle: Text(snapshot.data![index]));
-                },
-                itemCount: snapshot.data!.length,
-              );
+          return ListView.builder(
+            itemBuilder: (context, index) {
+              return ListTile(subtitle: Text(snapshot.data![index]));
             },
-            future: Future<List<String>>(() async {
-              var p = await AssetBundleHelper.getAllPaths(context);
-              return Future.wait(
-                  p.map((e) async =>
-                  (await DefaultAssetBundle.of(context)
-                      .loadString(e))).toList());
-            }),
-          )),
+            itemCount: snapshot.data!.length,
+          );
+        },
+        future: Future<List<String>>(() async {
+          var p = await AssetBundleHelper.getAllPaths(context);
+          return Future.wait(
+              p.map((e) async => (await DefaultAssetBundle.of(context).loadString(e))).toList());
+        }),
+      )),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',

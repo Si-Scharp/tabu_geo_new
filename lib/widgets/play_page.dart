@@ -6,6 +6,7 @@ import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tabu_geo_new/bloc/game_bloc/game_bloc.dart';
+import 'package:tabu_geo_new/models/game.dart';
 import 'package:tabu_geo_new/models/game_settings.dart';
 import 'package:tabu_geo_new/models/geo_card.dart';
 import 'package:tabu_geo_new/widgets/card_view_widget.dart';
@@ -47,7 +48,7 @@ class _PlayPageState extends State<PlayPage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GameBloc(gameSettings: widget.gameSettings, initialCards: widget.cards),
+      create: (context) => GameBloc(gameSettings: widget.gameSettings, initialCards: widget.cards, game: Game(cards: widget.cards, gameSettings: widget.gameSettings)),
       child: BlocConsumer<GameBloc, GameState>(
         listener: (context, state) {
           print("High");
@@ -102,7 +103,7 @@ class _PlayPageState extends State<PlayPage> with SingleTickerProviderStateMixin
 
   Widget _hiddenCard(BuildContext context) {
     return GestureDetector(
-        onTap: () => context.read<GameBloc>().add(CardTappedEvent()),
+        onTap: () => context.read<GameBloc>().add(CardRevealedEvent()),
         child: SizedBox.expand(child: Container(color: Colors.lightBlueAccent)));
   }
 
