@@ -3,14 +3,24 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+
+
+
 class CardButtons extends StatefulWidget {
+
+  final VoidCallback? clickedCorrectButton;
+  final VoidCallback? clickedWrongButton;
+  final VoidCallback? clickedUndoButton;
+  final VoidCallback? clickedDoneButton;
+  final ButtonState buttonState;
+
   const CardButtons({
     Key? key,
-    ButtonState buttonState = ButtonState.unspecified,
-    VoidCallback? clickedCorrectButton,
-    VoidCallback? clickedWrongButton,
-    VoidCallback? clickedUndoButton,
-    VoidCallback? clickedDoneButton,
+    this.buttonState = ButtonState.unspecified,
+    this.clickedCorrectButton,
+    this.clickedWrongButton,
+    this.clickedUndoButton,
+    this.clickedDoneButton,
   }) : super(key: key);
 
   @override
@@ -34,6 +44,10 @@ class _CardButtonsState extends State<CardButtons> with SingleTickerProviderStat
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      if ((widget.buttonState) != _animationController.state) _animationController.animateToState(widget.buttonState);
+    });
+
     return AnimatedBuilder(
       animation: _animationController,
       builder: (context, child) {
@@ -44,12 +58,16 @@ class _CardButtonsState extends State<CardButtons> with SingleTickerProviderStat
               flex: _animationController.wrongFraction,
               child: ElevatedButton(
                   onPressed: () {
-                    print(_animationController.correctBtnIcon.toString());
+
+
                     if (_animationController.state == ButtonState.wrong) {
+                      widget.clickedDoneButton?.call();
                     } else if (_animationController.state == ButtonState.correct) {
-                      _animationController.animateToState(ButtonState.unspecified);
+                      widget.clickedUndoButton?.call();
+                      //_animationController.animateToState(ButtonState.unspecified);
                     } else if (_animationController.state == ButtonState.unspecified) {
-                      _animationController.animateToState(ButtonState.wrong);
+                      widget.clickedWrongButton?.call();
+                      //_animationController.animateToState(ButtonState.wrong);
                     }
                   },
                   style: _btnSt(_animationController.wrongBtnCol),
@@ -65,10 +83,13 @@ class _CardButtonsState extends State<CardButtons> with SingleTickerProviderStat
               child: ElevatedButton(
                   onPressed: () {
                     if (_animationController.state == ButtonState.wrong) {
-                      _animationController.animateToState(ButtonState.unspecified);
+                      widget.clickedUndoButton?.call();
+                      //_animationController.animateToState(ButtonState.unspecified);
                     } else if (_animationController.state == ButtonState.correct) {
+                      widget.clickedDoneButton?.call();
                     } else if (_animationController.state == ButtonState.unspecified) {
-                      _animationController.animateToState(ButtonState.correct);
+                      widget.clickedCorrectButton?.call();
+                      //_animationController.animateToState(ButtonState.correct);
                     }
                   },
 
@@ -106,7 +127,6 @@ class _CardButtonAnimationController with ChangeNotifier {
 
   void animateToState(ButtonState state) {
     if (_state != state) {
-      print("set state to $state");
       if (state == ButtonState.correct || state == ButtonState.wrong) {
         _animatingFromState = null;
         animationController.forward();

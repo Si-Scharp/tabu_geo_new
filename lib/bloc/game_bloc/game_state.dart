@@ -1,30 +1,53 @@
+
+
 part of 'game_bloc.dart';
 
-@immutable
-abstract class GameState {}
+abstract class GameState {
+}
 
-class GameNotStartedState extends GameState {}
+class GameLoadingState extends GameState {
 
-abstract class GameRunningState extends GameState {
-  final int numberOfCurrentCard;
+}
+
+abstract class GameReadyState extends GameState {
+  int get currentTeamNumber => teamStatistics.fold(0, (int ct, element) => ct + element.totalCards) % gameSettings.numberOfTeams + 1;
+
+
+  final List<SingleTeamStatistic> teamStatistics;
   final int totalCards;
   final GameSettings gameSettings;
 
-  GameRunningState(this.numberOfCurrentCard, this.totalCards, this.gameSettings);
+  int get numberOfRemainingCards => totalCards - teamStatistics.fold(0, (counter, element) => counter += element.totalCards);
+
+  GameReadyState({required this.totalCards, required this.gameSettings, required this.teamStatistics});
+}
+
+class GameNotStartedState extends GameReadyState {
+
+  GameNotStartedState({required List<SingleTeamStatistic> teamStatistics, required int totalCards, required GameSettings gameSettings})
+      : super(totalCards: totalCards, teamStatistics: teamStatistics, gameSettings: gameSettings);
+}
+
+abstract class GameRunningState extends GameReadyState {
+  int get numberOfCurrentCard => teamStatistics.map((e) => e.totalCards).reduce((value, element) => value + element);
+
+
+  GameRunningState({required GameSettings gameSettings, required List<SingleTeamStatistic> teamStatistics, required int totalCards}) : super(teamStatistics: teamStatistics, gameSettings: gameSettings, totalCards: totalCards);
 }
 
 class GameCardHiddenState extends GameRunningState {
-  GameCardHiddenState(int numberOfCurrentCard, int totalCards, GameSettings gameSettings)
-      : super(numberOfCurrentCard, totalCards, gameSettings);
+  GameCardHiddenState({required GameSettings gameSettings, required int totalCards,
+    required List<SingleTeamStatistic> teamStatistics})
+      : super(teamStatistics: teamStatistics, totalCards: totalCards, gameSettings: gameSettings);
 }
 
 class GameCardShownState extends GameRunningState {
   final GeoCard card;
-  ButtonState state;
+  ButtonState buttonState;
 
-  final Duration? Time;
+  final Duration? time;
 
-  GameCardShownState(int numberOfCurrentCard, int totalCards, GameSettings gameSettings, this.card, this.Time,
-      {this.state = ButtonState.unspecified})
-      : super(numberOfCurrentCard, totalCards, gameSettings);
+  GameCardShownState({required int totalCards, required GameSettings gameSettings, required this.card, this.time,
+      this.buttonState = ButtonState.unspecified, required List<SingleTeamStatistic> teamStatistics})
+      : super(totalCards: totalCards, gameSettings: gameSettings, teamStatistics: teamStatistics);
 }

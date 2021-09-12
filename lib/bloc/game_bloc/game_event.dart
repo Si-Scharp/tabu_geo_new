@@ -3,10 +3,14 @@ part of 'game_bloc.dart';
 @immutable
 abstract class GameEvent {}
 
-class GameStartedEvent extends GameEvent {}
+class GameStartedEvent extends GameEvent {
+
+}
 
 class GuessingResultSubmittedEvent extends GameEvent {
-  GuessingResultSubmittedEvent([bool success = true]);
+  final bool success;
+
+  GuessingResultSubmittedEvent([this.success = true]);
 }
 
 class CardRevealedEvent extends GameEvent {
@@ -14,17 +18,8 @@ class CardRevealedEvent extends GameEvent {
 }
 
 class GuessingResultConfirmedEvent extends GameEvent {
-
 }
 
-//Replaced by the CardDroppedEvent
-class CardDroppedEvent extends GameEvent {
-  ///True if the player guessed it correct
-  final bool correct;
-  CardDroppedEvent({this.correct = true});
+class UndoResultEvent extends GameEvent {
 
 }
-
-
-
-class TimeTickEvent extends GameEvent {}

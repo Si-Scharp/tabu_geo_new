@@ -1,5 +1,6 @@
 import 'dart:async';
-
+import 'dart:math';
+import "package:uuid/uuid.dart";
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
@@ -9,62 +10,83 @@ import 'package:tabu_geo_new/models/geo_card.dart';
 import 'package:tabu_geo_new/widgets/card_buttons.dart';
 
 part 'game_event.dart';
+
 part 'game_state.dart';
 
 class GameBloc extends Bloc<GameEvent, GameState> {
-  final GameSettings gameSettings;
-  final List<GeoCard> initialCards;
-  late List<GeoCard> remainingCards;
-
   late Game game;
 
-  late GeoCard currentCard;
+  GeoCard getCurrentCard() => game.totalCards[game.results.length];
 
-  late Stopwatch stopwatch = new Stopwatch();
-  late Timer tickerTimer = new Timer(Duration.zero, () {});
-
-  GameBloc({required this.gameSettings, required this.initialCards, required this.game}) : super(GameNotStartedState()) {
-    initialCards.shuffle();
-    remainingCards = initialCards.toList();
-
-
+  GameBloc({required this.game})
+      : super(GameNotStartedState(
+            gameSettings: game.gameSettings,
+            teamStatistics: game.getAllTeamsStatistics(),
+            totalCards: game.totalCards.length)) {
+    game.totalCards.shuffle();
+    game.totalCards = game.totalCards.take(game.gameSettings.numberOfCards).toList();
   }
 
+
+// @formatter:off
   @override
   Stream<GameState> mapEventToState(GameEvent event) async* {
-    if (event is GameStartedEvent) yield _processCard();
-    if (event is CardRevealedEvent && state is GameCardHiddenState) yield _flipCard();
-    if (event is CardDroppedEvent) yield _dropCard(event.correct);
-    if (event is TimeTickEvent) yield _processTick();
+    print(game.getCurrentTeamNumber());
+    if (event is GameStartedEvent && state is GameNotStartedState) yield _nextCard();
+    else if (event is GameStartedEvent && !(state is GameNotStartedState)) throw ArgumentError("Calling GameStartedEvent while the game is running is not allowed", "event");
+    else if (event is CardRevealedEvent) yield _revealCard();
+    else if (event is GuessingResultSubmittedEvent) yield _submitResult(event.success);
+    else if (event is GuessingResultConfirmedEvent) yield _confirmResult();
+    else if (event is UndoResultEvent) yield _undoResult();
+    else throw UnsupportedError("The state type ${event.runtimeType} is not supported");
+  }
+// @formatter:on
+
+  GameCardHiddenState _nextCard() {
+    return GameCardHiddenState(
+        gameSettings: game.gameSettings,
+        totalCards: game.totalCards.length,
+        teamStatistics: game.getAllTeamsStatistics());
   }
 
-  GameCardShownState _processTick() {
-    return GameCardShownState(remainingCards.length + 1, initialCards.length, gameSettings, currentCard,
-        gameSettings.timeLimitPerCard! - stopwatch.elapsed);
+  GameCardShownState _revealCard() {
+    return GameCardShownState(
+        totalCards: game.totalCards.length,
+        gameSettings: game.gameSettings,
+        card: getCurrentCard(),
+        teamStatistics: game.getAllTeamsStatistics());
   }
 
-  GameCardHiddenState _dropCard(bool success) {
-    tickerTimer.cancel();
-    stopwatch
-      ..stop()
-      ..reset();
-    return _processCard();
+  bool? _submittedResult;
+
+  GameCardShownState _submitResult(bool success) {
+
+    _submittedResult = success;
+
+    return GameCardShownState(
+        totalCards: game.totalCards.length,
+        gameSettings: game.gameSettings,
+        card: getCurrentCard(),
+        buttonState: success ? ButtonState.correct : ButtonState.wrong,
+        teamStatistics: game.getAllTeamsStatistics());
   }
 
-  GameCardHiddenState _processCard() {
-    currentCard = remainingCards.removeLast();
+  GameCardShownState _undoResult() {
+    _submittedResult = null;
 
-    return GameCardHiddenState(remainingCards.length + 1, initialCards.length, gameSettings);
+    return GameCardShownState(
+        totalCards: game.totalCards.length,
+        gameSettings: game.gameSettings,
+        card: getCurrentCard(),
+        buttonState: ButtonState.unspecified,
+        teamStatistics: game.getAllTeamsStatistics());
   }
 
-  GameCardShownState _flipCard() {
-    if (gameSettings.timeLimitPerCard != null) {
-      tickerTimer = new Timer.periodic(Duration(milliseconds: 100), (timer) {
-        add(TimeTickEvent());
-      });
-      stopwatch = Stopwatch()..start();
+  GameCardHiddenState _confirmResult() {
+    if (_submittedResult == null) {
+      throw StateError("A result must first be submitted before confirming it");
     }
-    return GameCardShownState(remainingCards.length + 1, initialCards.length, gameSettings, currentCard,
-        gameSettings.timeLimitPerCard);
+    game.results.add(CardGuessingResult(card: getCurrentCard(), success: _submittedResult!, teamNumber: game.getCurrentTeamNumber()));
+    return _nextCard();
   }
 }

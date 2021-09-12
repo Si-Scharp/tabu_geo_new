@@ -10,7 +10,7 @@ import 'package:tabu_geo_new/models/game_settings.dart';
 import 'package:tabu_geo_new/widgets/card_buttons.dart';
 import 'package:tabu_geo_new/widgets/concentric_card_view.dart';
 import 'package:tabu_geo_new/widgets/home_page.dart';
-import 'package:tabu_geo_new/widgets/play_page.dart';
+import 'package:tabu_geo_new/widgets/linear_score_bar.dart';
 
 import 'models/geo_card.dart';
 
@@ -22,55 +22,37 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CardLoaderCubit(),
-      child: MaterialApp(
-          title: 'Geo Raten',
-          theme: ThemeData(
-            //cardTheme: CardTheme(elevation: 0.0),
-            // This is the theme of your application.
-            //
-            // Try running your application with "flutter run". You'll see the
-            // application has a blue toolbar. Then, without quitting the app, try
-            // changing the primarySwatch below to Colors.green and then invoke
-            // "hot reload" (press "r" in the console where you ran "flutter run",
-            // or simply save your changes to "hot reload" in a Flutter IDE).
-            // Notice that the counter didn't reset back to zero; the application
-            // is not restarted.
-            primarySwatch: Colors.blue,
-          ),
-          home: TP()
-          //home: HomePage(),
-          //home: TestWg(),
-          ),
-    );
-  }
-}
-
-class TP extends StatefulWidget {
-  const TP({Key? key}) : super(key: key);
-
-  @override
-  _TPState createState() => _TPState();
-}
-
-class _TPState extends State<TP> {
-  double val = 0.5;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Single Widget Test"),
-      ),
-      body: Center(
-        child: ConcentricCardView(card: tk, revealed: false,)
+    return MultiRepositoryProvider(providers: [
+      RepositoryProvider<GameSettings>(
+        create: (context) => GameSettings(),
+      )
+    ],
+      child: BlocProvider(
+        create: (context) => CardLoaderCubit(),
+        child: MaterialApp(
+            title: 'Geo Raten',
+            theme: ThemeData(
+              //cardTheme: CardTheme(elevation: 0.0),
+              // This is the theme of your application.
+              //
+              // Try running your application with "flutter run". You'll see the
+              // application has a blue toolbar. Then, without quitting the app, try
+              // changing the primarySwatch below to Colors.green and then invoke
+              // "hot reload" (press "r" in the console where you ran "flutter run",
+              // or simply save your changes to "hot reload" in a Flutter IDE).
+              // Notice that the counter didn't reset back to zero; the application
+              // is not restarted.
+              primarySwatch: Colors.blue,
+            ),
+            home: HomePage()
+            //home: HomePage(),
+            //home: TestWg(),
+            ),
       ),
     );
   }
 }
 
-typedef Fun<T, P> = T Function(P);
 
 class TestWg extends StatelessWidget {
   const TestWg({Key? key}) : super(key: key);

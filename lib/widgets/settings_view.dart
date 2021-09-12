@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/src/provider.dart';
+import 'package:tabu_geo_new/bloc/card_cubit/card_loader_cubit.dart';
+import 'package:tabu_geo_new/bloc/settings_cubit/settings_cubit.dart';
 import 'package:tabu_geo_new/models/game_settings.dart';
 
 class SettingsView extends StatefulWidget {
@@ -18,67 +22,89 @@ class _SettingsViewState extends State<SettingsView> {
     super.initState();
   }
 
+  SettingsCubit get cubit => context.read<SettingsCubit>();
+
+  List<Widget> _generateSettings(BuildContext context, SettingsState state) {
+    List<Widget> widgets = List.empty(growable: true);
+
+    widgets.add(ListTile(
+      title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Anzahl der Teams: ${state.settings.numberOfTeams}"),
+          Slider(
+            value: state.settings.numberOfTeams.toDouble(),
+            min: 1,
+            max: 10,
+            divisions: 9,
+            label: state.settings.numberOfTeams.toString(),
+            onChanged: (value) {
+              context
+                .read<SettingsCubit>()
+                .updateGameSettings((settings) => settings..numberOfTeams = value.toInt());
+            },
+          )
+        ],
+      ),
+    ));
+
+    if (state.numberOfCards != null) {
+      var max = state.cardsMultipleTeamNumber
+          ? (state.numberOfCards! ~/ state.settings.numberOfTeams).toDouble()
+          : state.numberOfCards!.toDouble();
+
+      widgets.add(ListTile(
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Anzahl der Karten: ${state.settings.numberOfCards}"),
+            Slider(
+              value: state.cardsMultipleTeamNumber ? state.settings.numberOfCards / state.settings.numberOfTeams : state.settings.numberOfCards.toDouble(),
+              min: 1,
+              max: max,
+              divisions: max.toInt() - 1,
+              label: state.settings.numberOfCards.toString(),
+              onChanged: (value) => context.read<SettingsCubit>().updateGameSettings((settings) => settings
+                ..numberOfCards =
+                    value.toInt() * (state.cardsMultipleTeamNumber ? state.settings.numberOfTeams : 1)),
+            )
+          ],
+        ),
+      ));
+
+      widgets.add(CheckboxListTile(
+        title: Text("Anzahl der Karten an Anzahl der Teams anpassen"),
+        value: state.cardsMultipleTeamNumber,
+        onChanged: (value) => context.read<SettingsCubit>().toogleCMTN(),
+      ));
+    } else {
+      widgets.add(ListTile(
+        title: Text("Anzahl der Karten"),
+        subtitle: Text("Diese Einstellung ist erst verfügbar sobald die Karten geladen wurden."),
+      ));
+    }
+
+    return widgets;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
-          title: Text("Uhranzeige"),
-          subtitle:
-              Text("Zeige hier eine Beschreibung der ausgewählten Aktion"),
-          trailing: DropdownButton<TimeType>(
-            value: TimeType.none,
-            items: [
-              DropdownMenuItem(child: Text("Keine"), value: TimeType.none,),
-              DropdownMenuItem(child: Text("Stoppuhr"), value: TimeType.stopwatch,),
-              DropdownMenuItem(child: Text("Timer"), value: TimeType.timer,),
-            ],
-          ),
-        ),
-        ListTile(title: Text("Zeitlimit"), trailing: SizedBox(width: 50,child: Slider(min: 10, max: 300, onChanged: (double value) {  }, value: 30,)),),
-        /*ListTile(
-          title: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            Text("Zeitlimit"),
-            SizedBox(
-              width: 4,
-            ),
-            Checkbox(
-              value: true,
-              onChanged: (value) {},
-            )
-          ]),
-          trailing: SizedBox(
-            width: 40,
-            child: TextField(
-              decoration:
-                  InputDecoration(suffix: Text("s"), helperText: "10-300"),
-              keyboardType: TextInputType.number,
-              inputFormatters: [
-                FilteringTextInputFormatter.digitsOnly,
-              ],
-            ),
-          ),
-          leading: Icon(Icons.timer),
-          subtitle: Row(
+    return BlocProvider<SettingsCubit>(
+      create: (context) => SettingsCubit(context.read<GameSettings>(), context.read<CardLoaderCubit>()),
+      child: BlocBuilder<SettingsCubit, SettingsState>(
+
+        builder: (context, state) {
+          return Column(
             children: [
-              Flexible(
-                child: Text(
-                    "Nach Ablauf wird ein Hinweis angezeigt und ein Ton abgespielt"),
-              ),
-              SizedBox(
-                width: 3,
-              ),
-              IconButton(
-                  onPressed: () => {}, icon: Icon(Icons.play_arrow_outlined))
+              ListTile(
+                title: Column(
+                  children: _generateSettings(context, state),
+                ),
+              )
             ],
-          ),
-        ),*/ // Old Time Limit
-        ListTile(
-          title: Text("Maximal Anzahl an Karten pro Spiel"),
-          trailing: SizedBox(width: 50,child: Slider(onChanged: (double value) {  }, value: 20, min: 5, max: 50, label: "zeige hier wert oder max an",)),
-        )
-        // Time Limit Settings
-      ],
+          );
+        },
+      ),
     );
   }
 }
